@@ -1,0 +1,15 @@
+<script src="https://kit.fontawesome.com/aa9dc78317.js" crossorigin="anonymous"></script>
+<h1>My tasks</h1>
+<ul style = 'none'>
+  <%@tasks.each do |task| %>
+  <li>
+    <input type="checkbox" id="<%=task.id%>" name="task-done"
+          unchecked>
+    <%= link_to task.title, task_path(task)%>
+    <i class="fas fa-dumpster"></i>
+
+  <%end %>
+  </li>
+</ul>
+<%= link_to "Create a new task", new_task_path%>
+<script src="../../app/javascript/test.js"></script>
