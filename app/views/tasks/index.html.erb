@@ -1,15 +1,17 @@
-<script src="https://kit.fontawesome.com/aa9dc78317.js" crossorigin="anonymous"></script>
+
 <h1>My tasks</h1>
-<ul style = 'none'>
+<ul class = 'list-unstyled  w-50 fs-5 fb lh-lg p-3'>
   <%@tasks.each do |task| %>
-  <li>
-    <input type="checkbox" id="<%=task.id%>" name="task-done"
-          unchecked>
-    <%= link_to task.title, task_path(task)%>
+  <li class = 'list-group-item border border-light'>
+    <% if task.completed%>
+    <i class="fas fa-square"></i>
+    <%else%>
+    <i class="far fa-square"></i>
+    <% end %>
+    <%= link_to task.title, task_path(task), class: 'unfs-1'%>
     <i class="fas fa-dumpster"></i>
 
   <%end %>
   </li>
 </ul>
-<%= link_to "Create a new task", new_task_path%>
-<script src="../../app/javascript/test.js"></script>
+<%= link_to "Create a new task", new_task_path, class: 'btn btn-primary btn-sm'%>

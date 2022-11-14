@@ -1,12 +1,23 @@
-<h1><%=@task.title%></h1>
-<h2><%= link_to 'Edit me', edit_task_path%></h2>
-<div><%=@task.details%> </div>
+<div class='flex-row w-100'>
+  <div>
+    <h1><%=@task.title%></h1>
+  </div>
+  <div>
+    <%= link_to 'Edit me', edit_task_path, class: 'btn btn-primary btn-sm'%>
+  </div>
+</div>
 <div>
-  <input type="checkbox" id="task_completed%>" name="task-completed"
-         checked='<%=@task.completed%>'>
-  <label for="task_completed">This task has been completed</label>
+  <%=@task.details%>
+  <% if @task.completed%>
+    <i class="fas fa-square" ></i>
+  <%else%>
+    <i class="far fa-square" ></i>
+  <% end %>
  </div>
-<%= link_to 'Back', tasks_path%>
-<%= link_to 'Delete this Task', task_path,
+ <div>
+  <%= link_to 'Back', tasks_path, class: 'btn btn-primary btn-sm'%>
+  <%= link_to 'Delete this Task', task_path,
+    class: 'btn btn-primary btn-sm',
     method: :delete,
     data: { confirm: "Are you sure?" }%>
+ </div>

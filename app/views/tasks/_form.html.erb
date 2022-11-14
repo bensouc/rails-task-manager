@@ -1,0 +1,11 @@
+<div class='mb-3'>
+<%= simple_form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.label :completed if !@task.new_record?%>
+  <%= f.check_box :completed if !@task.new_record?%>
+  <%= f.submit class: 'btn btn-info' %>
+<% end %>
+</div>
